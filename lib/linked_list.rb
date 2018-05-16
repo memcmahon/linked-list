@@ -40,10 +40,25 @@ class LinkedList
   end
 
   def pop(current = @head)
-    until current.next_node.next_node.nil?
-      current = current.next_node
+    if count == 1
+      @head = nil
+    elsif count == 2
+      current.next_node = nil
+    else
+      until current.next_node.next_node.nil?
+        current = current.next_node
+      end
+      current.next_node = nil
     end
-    current.next_node = nil
+  end
+
+  def shift
+    if @head.nil?
+    elsif @head.next_node.nil?
+      @head = nil
+    else
+      @head = @head.next_node
+    end
   end
 
   def count(current = @head, tally = 0)

@@ -75,4 +75,44 @@ class LinkedListTest < Minitest::Test
 
     assert_equal '54', linked_list.to_s
   end
+
+  def test_it_can_pop_a_node_from_the_end_of_two_nodes
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+    linked_list.append(4)
+
+    linked_list.pop
+
+    assert_equal '5', linked_list.to_s
+  end
+
+  def test_it_can_pop_a_node_from_the_end_of_one_node
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+
+
+    linked_list.pop
+
+    assert_equal '', linked_list.to_s
+  end
+
+  def test_it_can_shift_a_node_from_beginning
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+    linked_list.append(4)
+    linked_list.append(3)
+
+    linked_list.shift
+
+    assert_equal '43', linked_list.to_s
+  end
+
+  def test_it_can_shift_a_node_from_beginning_of_single_node_list
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+
+    linked_list.shift
+
+    assert_equal '', linked_list.to_s
+  end
 end
