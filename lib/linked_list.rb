@@ -16,4 +16,17 @@ class LinkedList
       append(current, num)
     end
   end
+
+  def count(current = @head, tally = 0)
+    if current.nil?
+      return tally
+    elsif current.next_node.nil?
+      tally += 1
+      return tally
+    else
+      tally += 1
+      current = current.next_node
+      count(current, tally)
+    end
+  end
 end
