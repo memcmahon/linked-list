@@ -12,4 +12,14 @@ class StackTest < Minitest::Test
 
     assert_equal 18, stack.peek
   end
+
+  def test_it_can_determine_if_empty
+    stack = Stack.new
+
+    assert stack.is_empty?
+
+    stack.push(4)
+
+    refute stack.is_empty?
+  end
 end

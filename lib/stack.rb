@@ -16,4 +16,12 @@ class Stack
     end
     return current_node.data
   end
+
+  def is_empty?
+    if @list.count == 0
+      true
+    else
+      false
+    end
+  end
 end
