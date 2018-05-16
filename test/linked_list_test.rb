@@ -44,4 +44,14 @@ class LinkedListTest < Minitest::Test
 
     assert '543', linked_list.to_s
   end
+
+  def test_it_can_prepend_a_node
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+    linked_list.append(4)
+    linked_list.append(3)
+    linked_list.prepend(2)
+
+    assert '2543', linked_list.to_s
+  end
 end

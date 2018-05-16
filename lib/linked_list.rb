@@ -17,6 +17,15 @@ class LinkedList
     end
   end
 
+  def prepend(num)
+    if head.nil?
+      @head = Node.new(num)
+    else
+      holder = @head
+      @head = Node.new(num, holder)
+    end
+  end
+
   def count(current = @head, tally = 0)
     if current.nil?
       return tally
