@@ -9,6 +9,16 @@ class Stack
     @list.append(num)
   end
 
+  def pop
+    current_node = @list.head
+    until current_node.next_node.next_node.nil?
+      current_node = current_node.next_node
+    end
+    pop_value = current_node.next_node.data
+    current_node.next_node = nil
+    pop_value
+  end
+
   def peek
     current_node = @list.head
     until current_node.next_node.nil?
