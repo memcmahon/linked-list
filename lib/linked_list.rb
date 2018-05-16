@@ -26,6 +26,19 @@ class LinkedList
     end
   end
 
+  def insert(position, num, tally = 0, current = @head)
+    if position == 0 || (position - 1) == count
+      append(num)
+    else
+      while tally != (position - 1)
+        current = current.next_node
+        tally += 1
+      end
+      holder = current.next_node
+      current.next_node = Node.new(num, holder)
+    end
+  end
+
   def count(current = @head, tally = 0)
     if current.nil?
       return tally
@@ -39,14 +52,13 @@ class LinkedList
     end
   end
 
-  def to_s(current = @head)
-    string = ""
+  def to_s(current = @head, string = "")
     if current.nil?
       return string
     else
       string = "#{string}#{current.data}"
       current = current.next_node
-      to_s(current)
+      to_s(current, string)
     end
   end
 end

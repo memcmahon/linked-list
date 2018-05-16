@@ -33,7 +33,7 @@ class LinkedListTest < Minitest::Test
     linked_list.append(4)
     linked_list.append(3)
 
-    assert 3, linked_list.count
+    assert_equal 3, linked_list.count
   end
 
   def test_it_can_return_node_values_as_string
@@ -42,7 +42,7 @@ class LinkedListTest < Minitest::Test
     linked_list.append(4)
     linked_list.append(3)
 
-    assert '543', linked_list.to_s
+    assert_equal '543', linked_list.to_s
   end
 
   def test_it_can_prepend_a_node
@@ -52,6 +52,16 @@ class LinkedListTest < Minitest::Test
     linked_list.append(3)
     linked_list.prepend(2)
 
-    assert '2543', linked_list.to_s
+    assert_equal '2543', linked_list.to_s
+  end
+
+  def test_it_can_insert_a_node
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+    linked_list.append(4)
+    linked_list.append(3)
+    linked_list.insert(2, 2)
+
+    assert_equal '5423', linked_list.to_s
   end
 end
