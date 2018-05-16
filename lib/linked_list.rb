@@ -29,4 +29,15 @@ class LinkedList
       count(current, tally)
     end
   end
+
+  def to_s(current = @head)
+    string = ""
+    if current.nil?
+      return string
+    else
+      string = "#{string}#{current.data}"
+      current = current.next_node
+      to_s(current)
+    end
+  end
 end

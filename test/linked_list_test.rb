@@ -35,4 +35,13 @@ class LinkedListTest < Minitest::Test
 
     assert 3, linked_list.count
   end
+
+  def test_it_can_return_node_values_as_string
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+    linked_list.append(4)
+    linked_list.append(3)
+
+    assert '543', linked_list.to_s
+  end
 end
