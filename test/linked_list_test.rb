@@ -64,4 +64,15 @@ class LinkedListTest < Minitest::Test
 
     assert_equal '5423', linked_list.to_s
   end
+
+  def test_it_can_pop_a_node_from_the_end
+    linked_list = LinkedList.new()
+    linked_list.append(5)
+    linked_list.append(4)
+    linked_list.append(3)
+
+    linked_list.pop
+
+    assert_equal '54', linked_list.to_s
+  end
 end

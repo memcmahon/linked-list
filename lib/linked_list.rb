@@ -39,6 +39,13 @@ class LinkedList
     end
   end
 
+  def pop(current = @head)
+    until current.next_node.next_node.nil?
+      current = current.next_node
+    end
+    current.next_node = nil
+  end
+
   def count(current = @head, tally = 0)
     if current.nil?
       return tally
